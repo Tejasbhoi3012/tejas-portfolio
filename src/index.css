@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: "Space Grotesk", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    background-color: #0b1326;
+    color: #dae2fd;
+    font-family: var(--font-mono);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #060e20;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2d3449;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #10b981;
+  }
+}
+
+.font-display {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.font-mono-code {
+  font-family: "JetBrains Mono", monospace;
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.glass-card {
+  background: rgba(23, 31, 51, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.glass-card:hover {
+  border-color: rgba(16, 185, 129, 0.45);
+  box-shadow: 0 0 30px -5px rgba(16, 185, 129, 0.22);
+}
+
+/* HUD Reticle Brackets */
+.hud-reticle {
+  position: relative;
+}
+
+.hud-reticle::before,
+.hud-reticle::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.hud-reticle::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid #4edea3;
+  border-left: 2px solid #4edea3;
+}
+
+.hud-reticle::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid #4edea3;
+  border-right: 2px solid #4edea3;
+}
+
+.hud-reticle:hover::before,
+.hud-reticle:hover::after {
+  opacity: 1;
+  width: 14px;
+  height: 14px;
+  filter: drop-shadow(0 0 4px #4edea3);
+}
+
+/* Digital Glitch Animation on Hover */
+@keyframes glitchAnim {
+  0% {
+    transform: translate(0);
+    text-shadow: none;
+  }
+  20% {
+    transform: translate(-2px, 1px);
+    text-shadow: 2px 0 #4edea3, -2px 0 #c0c1ff;
+  }
+  40% {
+    transform: translate(2px, -1px);
+    text-shadow: -2px 0 #4cd7f6, 2px 0 #4edea3;
+  }
+  60% {
+    transform: translate(-1px, -1px);
+    text-shadow: 1px 0 #ffb4ab, -1px 0 #4edea3;
+  }
+  80% {
+    transform: translate(1px, 1px);
+    text-shadow: -1px 0 #4edea3, 1px 0 #c0c1ff;
+  }
+  100% {
+    transform: translate(0);
+    text-shadow: none;
+  }
+}
+
+.glitch-text:hover {
+  animation: glitchAnim 0.35s ease-in-out;
+}
+
+/* Ambient Scanlines */
+.scanline-bg {
+  background: linear-gradient(
+    rgba(11, 19, 38, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+}
+
+/* Radar Sweep Keyframe */
+@keyframes radarSweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.radar-sweep {
+  animation: radarSweep 8s linear infinite;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 9px;
+  height: 18px;
+  background-color: #4edea3;
+  vertical-align: middle;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  box-shadow: 0 0 8px #4edea3;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
