@@ -1,7 +1,6 @@
-import React from 'react';
-import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { PORTFOLIO_DATA } from '../../data/portfolioData';
 
-export const Footer: React.FC = () => {
+export const Footer = () => {
   const { profile } = PORTFOLIO_DATA;
 
   return (

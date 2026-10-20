@@ -1,20 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { useState, useRef, useEffect } from 'react';
+import { PORTFOLIO_DATA } from '../../data/portfolioData';
 
-interface InteractiveTerminalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-interface CommandLog {
-  id: number;
-  command: string;
-  output: React.ReactNode;
-}
-
-export const InteractiveTerminal: React.FC<InteractiveTerminalProps> = ({ isOpen, onClose }) => {
+export const InteractiveTerminal = ({ isOpen, onClose }) => {
   const [input, setInput] = useState('');
-  const [history, setHistory] = useState<CommandLog[]>([
+  const [history, setHistory] = useState([
     {
       id: 1,
       command: 'sys --status',
@@ -26,8 +15,8 @@ export const InteractiveTerminal: React.FC<InteractiveTerminalProps> = ({ isOpen
       ),
     },
   ]);
-  const bottomRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const bottomRef = useRef(null);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -43,12 +32,12 @@ export const InteractiveTerminal: React.FC<InteractiveTerminalProps> = ({ isOpen
 
   if (!isOpen) return null;
 
-  const handleCommand = (e: React.FormEvent) => {
+  const handleCommand = (e) => {
     e.preventDefault();
     const cmd = input.trim().toLowerCase();
     if (!cmd) return;
 
-    let output: React.ReactNode = null;
+    let output = null;
 
     switch (cmd) {
       case 'help':

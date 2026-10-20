@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'motion/react';
-import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { PORTFOLIO_DATA } from '../../data/portfolioData';
 
-export const ContactSection: React.FC = () => {
+export const ContactSection = () => {
   const { profile } = PORTFOLIO_DATA;
-  const [copiedType, setCopiedType] = useState<string | null>(null);
+  const [copiedType, setCopiedType] = useState(null);
 
   // Form State
   const [formData, setFormData] = useState({
@@ -13,9 +13,9 @@ export const ContactSection: React.FC = () => {
     subject: '',
     message: '',
   });
-  const [status, setStatus] = useState<'idle' | 'transmitting' | 'dispatched'>('idle');
+  const [status, setStatus] = useState('idle');
 
-  const copyToClipboard = (text: string, label: string) => {
+  const copyToClipboard = (text, label) => {
     navigator.clipboard.writeText(text);
     setCopiedType(label);
     setTimeout(() => {
@@ -23,7 +23,7 @@ export const ContactSection: React.FC = () => {
     }, 2500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 

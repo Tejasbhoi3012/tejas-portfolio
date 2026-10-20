@@ -1,14 +1,7 @@
-import React from 'react';
 import { motion } from 'motion/react';
-import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { PORTFOLIO_DATA } from '../../data/portfolioData';
 
-interface ProjectsProps {
-  onOpenArchitecture: () => void;
-  onOpenStoreRatingDemo: () => void;
-  onOpenTravelPlannerDemo: () => void;
-}
-
-export const Projects: React.FC<ProjectsProps> = ({
+export const Projects = ({
   onOpenArchitecture,
   onOpenStoreRatingDemo,
   onOpenTravelPlannerDemo,

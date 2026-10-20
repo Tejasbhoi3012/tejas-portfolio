@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-interface DemoModalProps {
-  type: 'store_rating' | 'travel_planner' | null;
-  onClose: () => void;
-}
-
-export const DemoModal: React.FC<DemoModalProps> = ({ type, onClose }) => {
+export const DemoModal = ({ type, onClose }) => {
   // Store Rating State
-  const [role, setRole] = useState<'admin' | 'owner' | 'user'>('user');
+  const [role, setRole] = useState('user');
   const [stores, setStores] = useState([
     { id: '1', name: 'Artisan Cafe & Bakery', category: 'Food & Beverage', rating: 4.8, reviews: 142, address: 'FC Road, Pune' },
     { id: '2', name: 'Apex Tech Hardware Lab', category: 'Electronics', rating: 4.6, reviews: 89, address: 'Kothrud, Pune' },
@@ -22,11 +17,11 @@ export const DemoModal: React.FC<DemoModalProps> = ({ type, onClose }) => {
   const [days, setDays] = useState(3);
   const [budget, setBudget] = useState('Moderate');
   const [generating, setGenerating] = useState(false);
-  const [itinerary, setItinerary] = useState<any[] | null>(null);
+  const [itinerary, setItinerary] = useState(null);
 
   if (!type) return null;
 
-  const handleRatingSubmit = (e: React.FormEvent) => {
+  const handleRatingSubmit = (e) => {
     e.preventDefault();
     setRatingSubmitted(true);
     setTimeout(() => {
@@ -94,7 +89,7 @@ export const DemoModal: React.FC<DemoModalProps> = ({ type, onClose }) => {
                 Switch Active Role:
               </span>
               <div className="flex items-center gap-2">
-                {(['user', 'owner', 'admin'] as const).map((r) => (
+                {['user', 'owner', 'admin'].map((r) => (
                   <button
                     key={r}
                     onClick={() => setRole(r)}
@@ -269,7 +264,7 @@ export const DemoModal: React.FC<DemoModalProps> = ({ type, onClose }) => {
                         <span className="text-[#4edea3] font-bold block">Day {dayPlan.day}</span>
                         <span className="font-bold text-[#dae2fd] block pt-1">{dayPlan.title}</span>
                         <ul className="list-disc list-inside text-[#bbcabf] text-[11px] pt-2 space-y-1">
-                          {dayPlan.spots.map((spot: string) => (
+                          {dayPlan.spots.map((spot) => (
                             <li key={spot}>{spot}</li>
                           ))}
                         </ul>

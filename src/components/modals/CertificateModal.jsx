@@ -1,12 +1,6 @@
-import React from 'react';
-import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { PORTFOLIO_DATA } from '../../data/portfolioData';
 
-interface CertificateModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-export const CertificateModal: React.FC<CertificateModalProps> = ({ isOpen, onClose }) => {
+export const CertificateModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
   const { certification, profile } = PORTFOLIO_DATA;
 

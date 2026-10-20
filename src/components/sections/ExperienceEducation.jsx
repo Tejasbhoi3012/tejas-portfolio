@@ -1,8 +1,7 @@
-import React from 'react';
 import { motion } from 'motion/react';
-import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { PORTFOLIO_DATA } from '../../data/portfolioData';
 
-export const ExperienceEducation: React.FC = () => {
+export const ExperienceEducation = () => {
   const { experience, education } = PORTFOLIO_DATA;
 
   return (

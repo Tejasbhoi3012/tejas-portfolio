@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-export const ScrollProgressBar: React.FC = () => {
+export const ScrollProgressBar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {

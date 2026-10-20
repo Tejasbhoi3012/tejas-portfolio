@@ -3,25 +3,25 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
-import { Header } from './components/Header';
-import { ScrollProgressBar } from './components/ScrollProgressBar';
-import { Hero } from './components/Hero';
-import { ExperienceEducation } from './components/ExperienceEducation';
-import { Projects } from './components/Projects';
-import { SkillsMatrix } from './components/SkillsMatrix';
-import { Certifications } from './components/Certifications';
-import { ContactSection } from './components/ContactSection';
-import { Footer } from './components/Footer';
-import { ArchitectureModal } from './components/ArchitectureModal';
-import { DemoModal } from './components/DemoModal';
-import { CertificateModal } from './components/CertificateModal';
-import { InteractiveTerminal } from './components/InteractiveTerminal';
+import { useState, useEffect } from 'react';
+import { Header } from './components/layout/Header';
+import { ScrollProgressBar } from './components/layout/ScrollProgressBar';
+import { Footer } from './components/layout/Footer';
+import { Hero } from './components/sections/Hero';
+import { ExperienceEducation } from './components/sections/ExperienceEducation';
+import { Projects } from './components/sections/Projects';
+import { SkillsMatrix } from './components/sections/SkillsMatrix';
+import { Certifications } from './components/sections/Certifications';
+import { ContactSection } from './components/sections/ContactSection';
+import { ArchitectureModal } from './components/modals/ArchitectureModal';
+import { DemoModal } from './components/modals/DemoModal';
+import { CertificateModal } from './components/modals/CertificateModal';
+import { InteractiveTerminal } from './components/modals/InteractiveTerminal';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('about');
   const [architectureModalOpen, setArchitectureModalOpen] = useState(false);
-  const [demoModalType, setDemoModalType] = useState<'store_rating' | 'travel_planner' | null>(null);
+  const [demoModalType, setDemoModalType] = useState(null);
   const [certificateModalOpen, setCertificateModalOpen] = useState(false);
   const [terminalOpen, setTerminalOpen] = useState(false);
 

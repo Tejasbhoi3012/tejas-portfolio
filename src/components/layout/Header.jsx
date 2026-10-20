@@ -1,12 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { useState, useEffect } from 'react';
+import { PORTFOLIO_DATA } from '../../data/portfolioData';
 
-interface HeaderProps {
-  onOpenTerminal: () => void;
-  activeSection: string;
-}
-
-export const Header: React.FC<HeaderProps> = ({ onOpenTerminal, activeSection }) => {
+export const Header = ({ onOpenTerminal, activeSection }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 

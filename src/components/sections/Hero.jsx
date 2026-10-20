@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { PORTFOLIO_DATA } from '../../data/portfolioData';
 
-export const Hero: React.FC = () => {
+export const Hero = () => {
   const [latency, setLatency] = useState(14);
 
   // Typewriter roles
@@ -27,7 +27,7 @@ export const Hero: React.FC = () => {
   // Typewriter effect
   useEffect(() => {
     const currentRole = roles[roleIndex];
-    let timeout: NodeJS.Timeout;
+    let timeout;
 
     if (!isDeleting) {
       if (displayedText.length < currentRole.length) {

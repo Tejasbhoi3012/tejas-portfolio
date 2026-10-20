@@ -1,12 +1,7 @@
-import React from 'react';
 import { motion } from 'motion/react';
-import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { PORTFOLIO_DATA } from '../../data/portfolioData';
 
-interface CertificationsProps {
-  onOpenCredential: () => void;
-}
-
-export const Certifications: React.FC<CertificationsProps> = ({ onOpenCredential }) => {
+export const Certifications = ({ onOpenCredential }) => {
   const { certification } = PORTFOLIO_DATA;
 
   return (

@@ -1,22 +1,5 @@
-export interface Project {
-  id: string;
-  code: string;
-  tag: string;
-  badge: string;
-  badgeColor: 'emerald' | 'cyan' | 'indigo';
-  title: string;
-  description: string;
-  features?: {
-    icon: string;
-    title: string;
-    description: string;
-    color: string;
-  }[];
-  techStack: string[];
-  githubUrl: string;
-  demoType: 'architecture' | 'store_rating' | 'travel_planner';
-  colSpan?: string;
-}
+import avatarUrl from '../assets/avatar.jpg';
+import logoUrl from '../assets/logo.svg';
 
 export const PORTFOLIO_DATA = {
   profile: {
@@ -35,8 +18,8 @@ export const PORTFOLIO_DATA = {
     hostVersion: 'v2.4.0-PROD',
     bio: 'Full Stack Developer with hands-on experience building scalable web applications using React.js, Node.js, Express.js, and PostgreSQL. Strong understanding of REST APIs, authentication, relational database design, and frontend development. Experienced in AI-integrated systems and secure application architecture.',
     footerBio: 'Full Stack Developer & Systems Architect specializing in intelligent interfaces, generative AI pipelines, and distributed software systems.',
-    avatarUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCMXNaUy4eXjS5jPcoKQW15cKZF5xsQANSYfB5miYvMLn3H8c5WvZ-zaubcMCHJSOIxXIZ_fd0FeYiZDeBVvVK-dMTCqMQIU_tNbtClaTXyBIB0Pu1gUPc3sDTY5QElEM3Qi4SPJTfUTwoo2nEHtWi97ZzmK0vjCLKyWdOlGlrQIrYberTrqRMIrnI-uTXcHXiwzRdSY7Gpjg1KdPX3KUq7ges3vyys_jvmvGp7fjFPJ0QQYTVKSPG0',
-    logoUrl: 'https://lh3.googleusercontent.com/aida/AEtjO1UzuaW77--cRZL7Wr8IuicbFDvdKdksz1hMzQGIgtJ9wrAQzajpHMlS-cLgLyA4QIp2UcrFyToFgMleMy24yqS9McS096YxUv7PhcR9j6O5x5zh2z2Qi7_Sk4LisUIPa2LEYmB7NOD_QRFaaf5s12LB9Zqn1n1MdDFf_ME9rwl0BsKk4M63Y2cbtVgt90nOiGHOu0VXATNNVHUe9f-Su_GMqePJuFtzbLlz7VD_vD75Pwnln0cJpfRKgCU'
+    avatarUrl,
+    logoUrl
   },
   experience: {
     role: 'Frontend Developer',
@@ -144,7 +127,7 @@ export const PORTFOLIO_DATA = {
       demoType: 'travel_planner',
       colSpan: 'lg:col-span-12'
     }
-  ] as Project[],
+  ],
   skills: {
     languages: [
       { name: 'JavaScript (ES6+)', level: 'Advanced', percent: 92 },

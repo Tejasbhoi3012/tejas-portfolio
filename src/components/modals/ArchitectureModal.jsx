@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-interface ArchitectureModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-export const ArchitectureModal: React.FC<ArchitectureModalProps> = ({ isOpen, onClose }) => {
-  const [activeTab, setActiveTab] = useState<'architecture' | 'simulator'>('architecture');
-  const [simState, setSimState] = useState<'idle' | 'analyzing' | 'complete'>('idle');
+export const ArchitectureModal = ({ isOpen, onClose }) => {
+  const [activeTab, setActiveTab] = useState('architecture');
+  const [simState, setSimState] = useState('idle');
   const [selectedCase, setSelectedCase] = useState('Mild Eczema Erythema');
 
   if (!isOpen) return null;
